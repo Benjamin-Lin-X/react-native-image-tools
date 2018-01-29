@@ -1,0 +1,38 @@
+{
+  "name": "react-native-image-tools",
+  "version": "0.5.0",
+  "description": "React Native image tools",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Benjamin-Lin-X/react-native-image-tools.git"
+  },
+  "keywords": [
+    "react-native",
+    "android",
+    "ios",
+    "image",
+    "images",
+    "image-tools",
+    "tools",
+    "RGBA",
+    "binary"
+  ],
+  "peerDependencies": {
+    "react": "^15.4.0 || ^16.0.0-alpha",
+    "react-native": ">=v0.40.0"
+  },
+  "author": "Benjamin Lin <benjaminlin0713@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Benjamin-Lin-X/react-native-image-tools/issues"
+  },
+  "homepage": "https://github.com/Benjamin-Lin-X/react-native-image-tools#readme",
+  "devDependencies": {
+    "cz-conventional-changelog": "^1.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
