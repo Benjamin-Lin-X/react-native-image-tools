@@ -36,9 +36,9 @@ then go the file that you build the ReactInstance and add the packager to it.
 ## Usage example
 
 ```javascript
-import ImageResizer from 'react-native-image-tool';
+import ImageTools from 'react-native-image-tool';
 
-ImageResizer.createResizedImage(imageUri, newWidth, newHeight, compressFormat, quality, rotation, outputPath).then((response) => {
+ImageTools.createBinaryImage(imageUri, type, threshold, compressFormat, quality, frontColorString="000000ff", backColorString="ffffffff").then((response) => {
   // response.uri is the URI of the new image that can now be displayed, uploaded...
   // response.path is the path of the new image
   // response.name is the name of the new image with the extension
