@@ -1,6 +1,6 @@
 {
-  "name": "react-native-image-tools",
-  "version": "0.5.0",
+  "name": "react-native-image-tool",
+  "version": "0.5.1",
   "description": "React Native image tools",
   "repository": {
     "type": "git",

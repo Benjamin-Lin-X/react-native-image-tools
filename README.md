@@ -1,4 +1,4 @@
-# React Native Image Tools
+# React Native Image Tool
 
 A React Native module that can process local images.
 
@@ -12,15 +12,15 @@ Install the package:
 
 * 😻 React Native >= 0.40
 ```
-npm i --save react-native-image-tools
-react-native link react-native-image-tools
+npm i --save react-native-image-tool
+react-native link react-native-image-tool
 ```
 
 #### Manual linking
 If your any reason you don want to link this project using 'react-native link', go to settings.gradle and add
 ```
-include ':react-native-image-tools'
-project(':react-native-image-tools').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-image-tools/android')
+include ':react-native-image-tool'
+project(':react-native-image-tool').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-image-tool/android')
 ```
 then go the file that you build the ReactInstance and add the packager to it.
 
@@ -36,7 +36,7 @@ then go the file that you build the ReactInstance and add the packager to it.
 ## Usage example
 
 ```javascript
-import ImageResizer from 'react-native-image-tools';
+import ImageResizer from 'react-native-image-tool';
 
 ImageResizer.createResizedImage(imageUri, newWidth, newHeight, compressFormat, quality, rotation, outputPath).then((response) => {
   // response.uri is the URI of the new image that can now be displayed, uploaded...
