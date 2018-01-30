@@ -2,7 +2,7 @@
 //  ImageTools.m
 //  ChoozItApp
 //
-//  Created by Florian Rival on 19/11/15.
+//  Created by Benjamin Lin on 2018/01/29.
 //
 
 #include "RCTImageTools.h"
@@ -67,7 +67,7 @@ RCT_EXPORT_METHOD(createBinaryImage:(NSString *)path
                   backColorString:(NSString *)backColorString
                   callback:(RCTResponseSenderBlock)callback)
 {
-    CGSize newSize = CGSizeMake(width, height);
+    CGSize newSize = CGSizeMake(192, 192);
     
     //Set image extension
     NSString *extension = @"jpg";
@@ -78,7 +78,7 @@ RCT_EXPORT_METHOD(createBinaryImage:(NSString *)path
     
     NSString* fullPath;
     @try {
-        fullPath = generateFilePath(extension, outputPath);
+        fullPath = generateFilePath(extension, @"");
     } @catch (NSException *exception) {
         callback(@[@"Invalid output path.", @""]);
         return;
@@ -128,5 +128,11 @@ RCT_EXPORT_METHOD(createBinaryImage:(NSString *)path
 RCT_EXPORT_METHOD(GetImageRGBAs:(NSString *)path
                   callback:(RCTResponseSenderBlock)callback)
 {
+        NSDictionary *response = @{@"width": "192",
+                                   @"height": "192",
+                                   @"rgba": "ffffffff"
+                                   };
+        
+        callback(@[[NSNull null], response]);
 }
 @end

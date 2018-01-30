@@ -6,6 +6,18 @@ WARNING:
 - Only support Android now
 - iOS version will be released in Feb, 2018
 
+## Function
+- Get Image's RGBA data(array)
+- Binary Image
+
+## 功能 
+- 获取图片的RGBA值（数组）
+- 把图片转换成2值图
+
+## 機能
+- 画像のRGBAデータを取得（配列）
+- 元画像から、2値化画像を生成
+
 ## Setup
 
 Install the package:
@@ -68,7 +80,7 @@ The promise resolves with an object containing: `path`, `uri`, `name` and `size`
 Option | Description
 ------ | -----------
 path | Path of image file, or a base64 encoded image string prefixed with 'data:image/imagetype' where `imagetype` is jpeg or png.
-type | Only support 1
+type | Only support 1 Now
 threshold | 0-255
 compressFormat | Can be either JPEG, PNG or WEBP (android only).
 quality | A number between 0 and 100. Used for the JPEG compression.
