@@ -27,6 +27,11 @@ Install the package:
 npm i --save react-native-image-tool
 react-native link react-native-image-tool
 ```
+If a java undefined error occured, add
+```
+compile project(':react-native-image-tool')
+```
+into your build.gradle
 
 #### Manual linking
 If your any reason you don want to link this project using 'react-native link', go to settings.gradle and add

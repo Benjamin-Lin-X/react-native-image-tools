@@ -269,15 +269,15 @@ public class ImageTools {
             throw new IOException("Unable to load source image from path");
         }
 
-        int frontColorB = Integer.parseInt(strFrontColorRGBA.substring(0, 2), 16);
-        int frontColorG = Integer.parseInt(strFrontColorRGBA.substring(2, 4), 16);
-        int frontColorR = Integer.parseInt(strFrontColorRGBA.substring(4, 6), 16);
-        int frontColorA = Integer.parseInt(strFrontColorRGBA.substring(6, 8), 16);
+        int frontColorA = Integer.parseInt(strFrontColorRGBA.substring(0, 2), 16);
+        int frontColorR = Integer.parseInt(strFrontColorRGBA.substring(2, 4), 16);
+        int frontColorG = Integer.parseInt(strFrontColorRGBA.substring(4, 6), 16);
+        int frontColorB = Integer.parseInt(strFrontColorRGBA.substring(6, 8), 16);
         int frontColor = (frontColorA << 24) + (frontColorR << 16) + (frontColorG << 8) + frontColorB;
-        int backColorB = Integer.parseInt(strBackColorRGBA.substring(0, 2), 16);
-        int backColorG = Integer.parseInt(strBackColorRGBA.substring(2, 4), 16);
-        int backColorR = Integer.parseInt(strBackColorRGBA.substring(4, 6), 16);
-        int backColorA = Integer.parseInt(strBackColorRGBA.substring(6, 8), 16);
+        int backColorA = Integer.parseInt(strBackColorRGBA.substring(0, 2), 16);
+        int backColorR = Integer.parseInt(strBackColorRGBA.substring(2, 4), 16);
+        int backColorG = Integer.parseInt(strBackColorRGBA.substring(4, 6), 16);
+        int backColorB = Integer.parseInt(strBackColorRGBA.substring(6, 8), 16);
         int backColor = (backColorA << 24) + (backColorR << 16) + (backColorG << 8) + backColorB;
 
         Bitmap binaryMap = null;
@@ -335,5 +335,17 @@ public class ImageTools {
             return pixels;
         }
         return new int[1];
+    }
+
+    public static String bitmapToBase64(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream .toByteArray();
+        return Base64.encodeToString(byteArray, Base64.DEFAULT);
+    }
+
+    public static Bitmap base64ToBitmap(String b64) {
+        byte[] imageAsBytes = Base64.decode(b64.getBytes(), Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
     }
 }
