@@ -128,9 +128,9 @@ RCT_EXPORT_METHOD(createBinaryImage:(NSString *)path
 RCT_EXPORT_METHOD(GetImageRGBAs:(NSString *)path
                   callback:(RCTResponseSenderBlock)callback)
 {
-        NSDictionary *response = @{@"width": "192",
-                                   @"height": "192",
-                                   @"rgba": "ffffffff"
+        NSDictionary *response = @{@"width": @"192",
+                                   @"height": @"192",
+                                   @"rgba": @"ffffffff"
                                    };
         
         callback(@[[NSNull null], response]);

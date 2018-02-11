@@ -245,13 +245,12 @@ public class ImageTools {
 
                 // New ARGB
                 int newColor = 0;
-                //对图像进行二值化处理
+                // Binary process
                 if (gray <= threshold) {
                     newColor = frontColor;
                 } else {
                     newColor = backColor;
                 }
-                //设置新图像的当前像素值
                 binarymap.setPixel(i, j, newColor);
             }
         }
@@ -261,7 +260,7 @@ public class ImageTools {
     /**
      * Create a binary image.
      */
-    public static File createBinaryImage(Context context, Uri imageUri, int type, int threshold,
+    public static Bitmap createBinaryImage(Context context, Uri imageUri, int type, int threshold,
                                             Bitmap.CompressFormat compressFormat, int quality,
                                             String strFrontColorRGBA, String strBackColorRGBA) throws IOException  {
         Bitmap sourceImage = ImageTools.LoadImage(context, imageUri);
@@ -280,24 +279,28 @@ public class ImageTools {
         int backColorB = Integer.parseInt(strBackColorRGBA.substring(6, 8), 16);
         int backColor = (backColorA << 24) + (backColorR << 16) + (backColorG << 8) + backColorB;
 
-        Bitmap binaryMap = null;
+        Bitmap binaryImg = null;
         switch (type) {
             case 1:
-            binaryMap = ImageTools.Bmp2Binary(sourceImage, threshold, frontColor, backColor);
+            binaryImg = ImageTools.Bmp2Binary(sourceImage, threshold, frontColor, backColor);
                 break;
             default:
+                sourceImage.recycle();
                 throw new IOException("Unsupported type"+String.valueOf(type));
         }
         sourceImage.recycle();
 
-        // Save the resulting image
+        return binaryImg;
+    }
+
+    public static File SaveImg2File(Context context, Bitmap sourceImage, Bitmap.CompressFormat compressFormat, int quality) throws IOException {
         File path = context.getCacheDir();
 
-        File newFile = ImageTools.saveImage(binaryMap, path,
+        File newFile = ImageTools.saveImage(sourceImage, path,
                 Long.toString(new Date().getTime()), compressFormat, quality);
 
         // Clean up remaining image
-        binaryMap.recycle();
+        sourceImage.recycle();
 
         return newFile;
     }

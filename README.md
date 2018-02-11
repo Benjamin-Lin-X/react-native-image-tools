@@ -55,11 +55,12 @@ then go the file that you build the ReactInstance and add the packager to it.
 ```javascript
 import ImageTools from 'react-native-image-tool';
 
-ImageTools.createBinaryImage(imageUri, type, threshold, compressFormat, quality, frontColorString="000000ff", backColorString="ffffffff").then((response) => {
+ImageTools.createBinaryImage(imageUri, type, threshold, compressFormat, quality, flase, frontColorString="000000ff", backColorString="ffffffff").then((response) => {
   // response.uri is the URI of the new image that can now be displayed, uploaded...
   // response.path is the path of the new image
   // response.name is the name of the new image with the extension
   // response.size is the size of the new image
+  // while bOutputBase64 is true, response.base64 is the base64 string of the new image
 }).catch((err) => {
   // Oops, something went wrong. Check that the filename is correct and
   // inspect err to get more details.
@@ -89,6 +90,7 @@ type | Only support 1 Now
 threshold | 0-255
 compressFormat | Can be either JPEG, PNG or WEBP (android only).
 quality | A number between 0 and 100. Used for the JPEG compression.
+bOutputBase64 | Boolean. Set output format as base64(true) or template file(false).
 frontColorString | A 32bit hex formatted string with RGBA(R:bit0-7, G:bit8-15, B:bit16-23, A:bit24-32).
 backColorString | A 32bit hex formatted string with RGBA(R:bit0-7, G:bit8-15, B:bit16-23, A:bit24-32).
 

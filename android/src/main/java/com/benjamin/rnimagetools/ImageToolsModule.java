@@ -37,11 +37,11 @@ public class ImageToolsModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void createBinaryImage(String imagePath, int type, int threshold, String compressFormat, int quality,
-                            String strFrontColorRGBA, String strBackColorRGBA,
+                            Boolean bOutputBase64, String strFrontColorRGBA, String strBackColorRGBA,
                             final Callback successCb, final Callback failureCb) {
         try {
             createBinaryImageWithExceptions(imagePath, type, threshold, compressFormat, quality,
-                    strFrontColorRGBA, strBackColorRGBA,
+                    bOutputBase64, strFrontColorRGBA, strBackColorRGBA,
                     successCb, failureCb);
         } catch (IOException e) {
             failureCb.invoke(e.getMessage());
@@ -49,26 +49,36 @@ public class ImageToolsModule extends ReactContextBaseJavaModule {
     }
 
     private void createBinaryImageWithExceptions(String imagePath, int type, int threshold,
-                                           String compressFormatString, int quality,
+                                           String compressFormatString, int quality, Boolean bOutputBase64,
                                            String strFrontColorRGBA, String strBackColorRGBA,
                                            final Callback successCb, final Callback failureCb) throws IOException {
         Bitmap.CompressFormat compressFormat = Bitmap.CompressFormat.valueOf(compressFormatString);
         Uri imageUri = Uri.parse(imagePath);
 
-        File fImage = ImageTools.createBinaryImage(this.context, imageUri,
+        Bitmap binaryImg = ImageTools.createBinaryImage(this.context, imageUri,
                 type, threshold, compressFormat, quality, strFrontColorRGBA, strBackColorRGBA);
 
-        // If BinaryImagePath is empty and this wasn't caught earlier, throw.
-        if (fImage.isFile()) {
-            WritableMap response = Arguments.createMap();
-            response.putString("path", fImage.getAbsolutePath());
-            response.putString("uri", Uri.fromFile(fImage).toString());
-            response.putString("name", fImage.getName());
-            response.putDouble("size", fImage.length());
+        WritableMap response = Arguments.createMap();
+        if (bOutputBase64) {
+            String base64 = ImageTools.bitmapToBase64(binaryImg);
+            response.putString("base64", base64);
+            binaryImg.recycle();
             // Invoke success
             successCb.invoke(response);
-        } else {
-            failureCb.invoke("Error getting Binary image path");
+        }
+        else {
+            File fImage = ImageTools.SaveImg2File(this.context, binaryImg, compressFormat, quality);
+            // If BinaryImagePath is empty and this wasn't caught earlier, throw.
+            if (fImage.isFile()) {
+                response.putString("path", fImage.getAbsolutePath());
+                response.putString("uri", Uri.fromFile(fImage).toString());
+                response.putString("name", fImage.getName());
+                response.putDouble("size", fImage.length());
+                // Invoke success
+                successCb.invoke(response);
+            } else {
+                failureCb.invoke("Error getting Binary image path");
+            }
         }
     }
 
@@ -100,7 +110,7 @@ public class ImageToolsModule extends ReactContextBaseJavaModule {
             // Invoke success
             successCb.invoke(response);
         } else {
-            failureCb.invoke("Error getting Binary image path");
+            failureCb.invoke("Error getting image RGBA");
         }
     }
 }

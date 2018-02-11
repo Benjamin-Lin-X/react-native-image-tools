@@ -1,7 +1,7 @@
 {
   "name": "react-native-image-tool",
-  "version": "0.6.0",
-  "description": "React Native image tools",
+  "version": "0.6.1",
+  "description": "React Native Image Tool",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Benjamin-Lin-X/react-native-image-tools.git"
