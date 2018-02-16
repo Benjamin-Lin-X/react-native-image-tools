@@ -52,7 +52,7 @@ then go the file that you build the ReactInstance and add the packager to it.
 ```javascript
 import ImageTools from 'react-native-image-tool';
 
-ImageTools.createBinaryImage(imageUri, type, threshold, compressFormat, quality, flase, frontColorString="000000ff", backColorString="ffffffff").then((response) => {
+ImageTools.createBinaryImage(imageUri, type, threshold, compressFormat, quality, false, frontColorString="000000ff", backColorString="ffffffff").then((response) => {
   // response.uri is the URI of the new image that can now be displayed, uploaded...
   // response.path is the path of the new image
   // response.name is the name of the new image with the extension

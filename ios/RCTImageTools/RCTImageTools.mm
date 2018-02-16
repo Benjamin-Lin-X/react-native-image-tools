@@ -1,6 +1,5 @@
 //
 //  ImageTools.mm
-//  ChoozItApp
 //
 //  Created by Benjamin Lin on 2018/01/29.
 //
