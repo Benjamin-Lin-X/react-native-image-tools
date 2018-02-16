@@ -1,20 +1,17 @@
 # React Native Image Tool
 
 A React Native module that can process local images.
+Support both Android and iOS.
 
-WARNING:
-- Only support Android now
-- iOS version will be released in Feb, 2018
-
-## Function
+## Function (Endlish)
 - Get Image's RGBA data(array)
 - Binary Image
 
-## 功能 
+## 功能 (Chinese)
 - 获取图片的RGBA值（数组）
 - 把图片转换成2值图
 
-## 機能
+## 機能 (Japanese)
 - 画像のRGBAデータを取得（配列）
 - 元画像から、2値化画像を生成
 

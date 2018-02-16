@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5D72D2EC1C16249000E22EC1 /* RCTImageTools.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D72D2EB1C16249000E22EC1 /* RCTImageTools.h */; };
-		5D72D2EE1C16249000E22EC1 /* RCTImageTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D72D2ED1C16249000E22EC1 /* RCTImageTools.m */; };
+		5D72D2EE1C16249000E22EC1 /* RCTImageTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5D72D2ED1C16249000E22EC1 /* RCTImageTools.mm */; };
 		B62D1C4C1C95C21300AD70F2 /* ImageHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = B62D1C4B1C95C21300AD70F2 /* ImageHelpers.m */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,7 @@
 /* Begin PBXFileReference section */
 		5D72D2E81C16249000E22EC1 /* libRCTImageTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTImageTools.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D72D2EB1C16249000E22EC1 /* RCTImageTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTImageTools.h; sourceTree = "<group>"; };
-		5D72D2ED1C16249000E22EC1 /* RCTImageTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTImageTools.m; sourceTree = "<group>"; };
+		5D72D2ED1C16249000E22EC1 /* RCTImageTools.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTImageTools.mm; sourceTree = "<group>"; };
 		B62D1C4A1C95C21300AD70F2 /* ImageHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHelpers.h; sourceTree = "<group>"; };
 		B62D1C4B1C95C21300AD70F2 /* ImageHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHelpers.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -44,11 +44,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		434A0E5220345ED6006F9DAB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5D72D2DF1C16249000E22EC1 = {
 			isa = PBXGroup;
 			children = (
 				5D72D2EA1C16249000E22EC1 /* RCTImageTools */,
 				5D72D2E91C16249000E22EC1 /* Products */,
+				434A0E5220345ED6006F9DAB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,7 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				5D72D2EB1C16249000E22EC1 /* RCTImageTools.h */,
-				5D72D2ED1C16249000E22EC1 /* RCTImageTools.m */,
+				5D72D2ED1C16249000E22EC1 /* RCTImageTools.mm */,
 				B62D1C4A1C95C21300AD70F2 /* ImageHelpers.h */,
 				B62D1C4B1C95C21300AD70F2 /* ImageHelpers.m */,
 			);
@@ -127,7 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D72D2EE1C16249000E22EC1 /* RCTImageTools.m in Sources */,
+				5D72D2EE1C16249000E22EC1 /* RCTImageTools.mm in Sources */,
 				B62D1C4C1C95C21300AD70F2 /* ImageHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +226,10 @@
 		5D72D2F21C16249000E22EC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -234,6 +246,10 @@
 		5D72D2F31C16249000E22EC1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,

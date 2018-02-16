@@ -3,13 +3,13 @@ import {
 } from 'react-native';
 
 export default {
-  createBinaryImage: (path, type, threshold, format, quality, frontColorString="000000ff", backColorString="ffffffff") => {
+  createBinaryImage: (path, type, threshold, format, quality, bOutputBase64, frontColorString="000000ff", backColorString="ffffffff") => {
     if (format !== 'JPEG' && format !== 'PNG') {
       throw new Error('Only JPEG and PNG format are supported!');
     }
 
     return new Promise((resolve, reject) => {
-      NativeModules.ImageTools.createBinaryImage(path, type, threshold, format, quality, frontColorString, backColorString, (err, response) => {
+      NativeModules.ImageTools.createBinaryImage(path, type, threshold, format, quality, bOutputBase64, frontColorString, backColorString, (err, response) => {
         if (err) {
           return reject(err);
         }
