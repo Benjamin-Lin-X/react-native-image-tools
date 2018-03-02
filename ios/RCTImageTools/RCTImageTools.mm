@@ -154,9 +154,9 @@ RCT_EXPORT_METHOD(createBinaryImage:(NSString *)path
             }
         }
 
-        UInt32 frontColor = 0;
+        uint frontColor = 0;
         [[NSScanner scannerWithString:frontColorString] scanHexInt:&frontColor];
-        UInt32 backColor = 65535;
+        uint backColor = 65535;
         [[NSScanner scannerWithString:backColorString] scanHexInt:&backColor];
         switch (type) {
             case 1:
