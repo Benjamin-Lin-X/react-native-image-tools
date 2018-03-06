@@ -63,7 +63,7 @@ ImageTools.createBinaryImage(imageUri, type, threshold, compressFormat, quality,
   // inspect err to get more details.
 });
 
-ImageResizer.GetImageRGBAs(imageUri).then((response) => {
+ImageTools.GetImageRGBAs(imageUri).then((response) => {
   // response.width is the URI of the new image that can now be displayed, uploaded...
   // response.height is the path of the new image
   // response.rgba is a array of image RGBA(R:bit0-7, G:bit8-15, B:bit16-23, A:bit24-32)
